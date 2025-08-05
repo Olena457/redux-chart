@@ -2,9 +2,6 @@ import { createSelector } from "@reduxjs/toolkit";
 
 const selectExperimentsState = (state) => state.experiments || {};
 
-// Створюємо єдиний екземпляр порожнього масиву,
-// щоб завжди повертати одне й те саме посилання,
-// якщо дані відсутні. Це критично важливо для мемоізації селекторів.
 const EMPTY_ARRAY = [];
 
 export const selectSelectedExperimentIds = createSelector(
@@ -30,8 +27,6 @@ export const selectMetrics = createSelector(
 export const selectChartData = createSelector(
   [selectSelectedExperimentIds, selectAllData, selectMetrics],
   (selectedExperimentIds, allData, metrics) => {
-    // Умова перевірки для повернення стабільного порожнього масиву,
-    // якщо немає даних для відображення
     if (
       !selectedExperimentIds ||
       selectedExperimentIds.length === 0 ||
