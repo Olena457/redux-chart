@@ -1,27 +1,27 @@
 import { createSelector } from "@reduxjs/toolkit";
 
-const selectExperimentsState = (state) => state.experiments || {};
+const selectExperimentsState = (state) => state.experiments;
 
 const EMPTY_ARRAY = [];
 
 export const selectSelectedExperimentIds = createSelector(
   [selectExperimentsState],
-  (experiments) => experiments.selectedExperimentIds || EMPTY_ARRAY
+  (experiments) => experiments?.selectedExperimentIds || EMPTY_ARRAY
 );
 
 export const selectExperimentIds = createSelector(
   [selectExperimentsState],
-  (experiments) => experiments.experimentIds || EMPTY_ARRAY
+  (experiments) => experiments?.experimentIds || EMPTY_ARRAY
 );
 
 export const selectAllData = createSelector(
   [selectExperimentsState],
-  (experiments) => experiments.allData || EMPTY_ARRAY
+  (experiments) => experiments?.allData || EMPTY_ARRAY
 );
 
 export const selectMetrics = createSelector(
   [selectExperimentsState],
-  (experiments) => experiments.metrics || EMPTY_ARRAY
+  (experiments) => experiments?.metrics || EMPTY_ARRAY
 );
 
 export const selectChartData = createSelector(
