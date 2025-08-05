@@ -1,3 +1,70 @@
+// import { createSelector } from "@reduxjs/toolkit";
+
+// const selectExperimentsState = (state) => state.experiments;
+
+// const EMPTY_ARRAY = [];
+
+// export const selectSelectedExperimentIds = createSelector(
+//   [selectExperimentsState],
+//   (experiments) => experiments?.selectedExperimentIds || EMPTY_ARRAY
+// );
+
+// export const selectSelectedMetrics = createSelector(
+//   [selectExperimentsState],
+//   (experiments) => experiments?.selectedMetrics || EMPTY_ARRAY
+// );
+
+// export const selectExperimentIds = createSelector(
+//   [selectExperimentsState],
+//   (experiments) => experiments?.experimentIds || EMPTY_ARRAY
+// );
+
+// export const selectAllData = createSelector(
+//   [selectExperimentsState],
+//   (experiments) => experiments?.allData || EMPTY_ARRAY
+// );
+
+// export const selectMetrics = createSelector(
+//   [selectExperimentsState],
+//   (experiments) => experiments?.metrics || EMPTY_ARRAY
+// );
+
+// export const selectChartData = createSelector(
+//   [selectSelectedExperimentIds, selectSelectedMetrics, selectAllData],
+//   (selectedExperimentIds, selectedMetrics, allData) => {
+//     if (
+//       selectedExperimentIds.length === 0 ||
+//       selectedMetrics.length === 0 ||
+//       allData.length === 0
+//     ) {
+//       return EMPTY_ARRAY;
+//     }
+
+//     const chartData = [];
+
+//     selectedExperimentIds.forEach((expId) => {
+//       selectedMetrics.forEach((metricName) => {
+//         const filteredData = allData
+//           .filter(
+//             (row) =>
+//               row.experiment_id === expId && row.metric_name === metricName
+//           )
+//           .map((row) => ({ step: row.step, value: row.value }))
+//           .sort((a, b) => a.step - b.step);
+
+//         if (filteredData.length > 0) {
+//           chartData.push({
+//             experimentId: expId,
+//             metricName: metricName,
+//             data: filteredData,
+//           });
+//         }
+//       });
+//     });
+
+//     return chartData;
+//   }
+// );
 import { createSelector } from "@reduxjs/toolkit";
 
 const selectExperimentsState = (state) => state.experiments;
@@ -6,26 +73,31 @@ const EMPTY_ARRAY = [];
 
 export const selectSelectedExperimentIds = createSelector(
   [selectExperimentsState],
+
   (experiments) => experiments?.selectedExperimentIds || EMPTY_ARRAY
 );
 
 export const selectExperimentIds = createSelector(
   [selectExperimentsState],
+
   (experiments) => experiments?.experimentIds || EMPTY_ARRAY
 );
 
 export const selectAllData = createSelector(
   [selectExperimentsState],
+
   (experiments) => experiments?.allData || EMPTY_ARRAY
 );
 
 export const selectMetrics = createSelector(
   [selectExperimentsState],
+
   (experiments) => experiments?.metrics || EMPTY_ARRAY
 );
 
 export const selectChartData = createSelector(
   [selectSelectedExperimentIds, selectAllData, selectMetrics],
+
   (selectedExperimentIds, allData, metrics) => {
     if (
       !selectedExperimentIds ||
@@ -41,17 +113,22 @@ export const selectChartData = createSelector(
     selectedExperimentIds.forEach((expId) => {
       metrics.forEach((metricName) => {
         const filteredData = allData
+
           .filter(
             (row) =>
               row.experiment_id === expId && row.metric_name === metricName
           )
+
           .map((row) => ({ step: row.step, value: row.value }))
+
           .sort((a, b) => a.step - b.step);
 
         if (filteredData.length > 0) {
           chartData.push({
             experimentId: expId,
+
             metricName: metricName,
+
             data: filteredData,
           });
         }
