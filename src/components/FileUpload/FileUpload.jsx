@@ -93,7 +93,7 @@ const FileUpload = () => {
       <Button
         label="Upload CSV file"
         icon="pi pi-upload"
-        className="p-button-outlined p-button-success"
+        className="p-button-outlined p-button-success my-color-btn"
         onClick={() => document.getElementById("file-input").click()}
       />
       <input

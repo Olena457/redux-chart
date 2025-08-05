@@ -1,8 +1,9 @@
+import React from "react";
 import {
   LineChart as RechartsLineChart,
   Line,
   XAxis,
-  Yaxis,
+  YAxis,
   CartesianGrid,
   Tooltip,
   Legend,
@@ -30,7 +31,7 @@ const LineChart = ({ data, metricName, experimentId }) => {
             dataKey="Step"
             label={{ value: "Step", position: "insideBottom", offset: 0 }}
           />
-          <Yaxis
+          <YAxis
             label={{ value: "Value", angle: -90, position: "insideleft" }}
           />
           <Tooltip />
@@ -47,4 +48,4 @@ const LineChart = ({ data, metricName, experimentId }) => {
     </Card>
   );
 };
-export default LineChart;
+export default React.memo(LineChart);

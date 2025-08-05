@@ -2,14 +2,15 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const experimentsSlice = createSlice({
   name: "experiments",
-  initialeState: {
+  initialState: {
     allData: [],
     experimentIds: [],
+    selectedExperimentIds: [],
     metrics: [],
     isLoading: false,
     error: null,
   },
-  redusers: {
+  reducers: {
     setExperimentData: (state, action) => {
       state.allData = action.payload;
       const uniqueExperimentIds = [
@@ -44,11 +45,12 @@ const experimentsSlice = createSlice({
     },
   },
 });
+
 export const {
   setExperimentData,
   toggleExperimentSelection,
   setLoading,
   setError,
-} = experimentsSlice.reducer;
+} = experimentsSlice.actions;
 
 export default experimentsSlice.reducer;

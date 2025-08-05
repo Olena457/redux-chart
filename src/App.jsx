@@ -1,35 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { PrimeReactProvider } from "primereact/api";
+import "primereact/resources/primereact.min.css";
+import "primeicons/primeicons.css";
+import "primeflex/primeflex.css";
+import "primereact/resources/themes/lara-light-indigo/theme.css";
+import FileUpload from "./components/FileUpload/FileUpload.jsx";
+import ExperimentLit from "./components/ExperimentList/ExperimentList.jsx";
+import ChartDisplay from "./components/ChartDisplay/ChartDisplay.jsx";
+
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <PrimeReactProvider>
+      <div className="App p-4">
+        <h2 className="text-center my-title">Tracking Chart Data</h2>
+        <div className="grid">
+          <div className="col-12 md:col-4">
+            <FileUpload />
+            <ExperimentLit />
+          </div>
+          <div className="col-12 md:col-8">
+            <ChartDisplay />
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    </PrimeReactProvider>
+  );
 }
 
-export default App
+export default App;

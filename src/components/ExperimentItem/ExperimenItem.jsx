@@ -1,14 +1,18 @@
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Checkbox } from "prime/checkbox";
+import { Checkbox } from "primereact/checkbox";
+import { selectSelectedExperimentIds } from "../../redux/experiment/experimentSelectors.js";
 import { toggleExperimentSelection } from "../../redux/experiment/experimentsSlice.js";
 
 const ExperimenItem = ({ experimentId }) => {
   const dispatch = useDispatch();
 
-  const selectedExperimentIds = useSelector(
-    (state) => state.experiments.selectedExperimentIds
-  );
+  const selectedExperimentIds = useSelector(selectSelectedExperimentIds);
   const isSelected = selectedExperimentIds.includes(experimentId);
+
+  // const selectedExperimentIds = useSelector(
+  //   (state) => state.experiments.selectedExperimentIds
+  // );
 
   const handleChange = () => {
     dispatch(toggleExperimentSelection(experimentId));
@@ -28,4 +32,4 @@ const ExperimenItem = ({ experimentId }) => {
   );
 };
 
-export default ExperimenItem;
+export default React.memo(ExperimenItem);

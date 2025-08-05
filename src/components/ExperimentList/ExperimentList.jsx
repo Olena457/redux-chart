@@ -1,11 +1,17 @@
+import React from "react";
 import { useSelector } from "react-redux";
-import ExperimentItem from "../ExperimentItem";
+import ExperimentItem from "../ExperimentItem/ExperimenItem.jsx";
+import { selectExperimentIds } from "../../redux/experiment/experimentSelectors.js";
 import { Card } from "primereact/card";
 
 const ExperimentList = () => {
-  const experimentIds = useSelector((state) => state.experiments.experimetIds);
-  const isLoading = useSelector((state) => state.experiments.isLoading);
-  const error = useSelector((state) => state.experiments.error);
+  // const experimentIds = useSelector(
+  //   (state) => state.experiments?.experimentIds || []
+  // );
+  const experimentIds = useSelector(selectExperimentIds);
+  const isLoading = useSelector((state) => state.experiments?.isLoading);
+  const error = useSelector((state) => state.experiments?.error);
+
   if (isLoading) {
     return <p>Loading data...</p>;
   }
@@ -14,7 +20,7 @@ const ExperimentList = () => {
   }
   if (experimentIds.length === 0) {
     return (
-      <Card title="Experiment" className="mt-4">
+      <Card title="Experiment" className="mt-4 my-custom-card">
         <p>Download CSV-file to see chart.</p>
       </Card>
     );
@@ -31,4 +37,4 @@ const ExperimentList = () => {
     </Card>
   );
 };
-export default ExperimentList;
+export default React.memo(ExperimentList);
