@@ -14,7 +14,7 @@ const MetricList = () => {
   };
 
   return (
-    <Card title="Metrics available" className="mt-4">
+    <Card title="Metrics available" className="mt-4 my-custom-card">
       {metrics.length === 0 ? (
         <p>No metrics found. Please upload a CSV file.</p>
       ) : (

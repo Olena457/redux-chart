@@ -1,54 +1,3 @@
-// import React from "react";
-// import {
-//   LineChart as RechartsLineChart,
-//   Line,
-//   XAxis,
-//   YAxis,
-//   CartesianGrid,
-//   Tooltip,
-//   Legend,
-//   ResponsiveContainer,
-// } from "recharts";
-// import { Card } from "primereact/card";
-
-// const LineChart = ({ data, metricName, experimentId }) => {
-//   if (!data || data.length === 0) {
-//     return (
-//       <Card title={`${metricName} (${experimentId})`} className="mb-4">
-//         <p>Data for this graph is missing</p>
-//       </Card>
-//     );
-//   }
-//   return (
-//     <Card title={`${metricName} (${experimentId})`} className="mb-4">
-//       <ResponsiveContainer width="100%" height={300}>
-//         <RechartsLineChart
-//           data={data}
-//           margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-//         >
-//           <CartesianGrid strokeDasharray="3 3" />
-//           <XAxis
-//             dataKey="Step"
-//             label={{ value: "Step", position: "insideBottom", offset: 0 }}
-//           />
-//           <YAxis
-//             label={{ value: "Value", angle: -90, position: "insideleft" }}
-//           />
-//           <Tooltip />
-//           <Legend />
-//           <Line
-//             type="monotone"
-//             dataKey="value"
-//             stroke="8884d8"
-//             activeDot={{ r: 8 }}
-//             name={`${metricName} (${experimentId})`}
-//           />
-//         </RechartsLineChart>
-//       </ResponsiveContainer>
-//     </Card>
-//   );
-// };
-// export default React.memo(LineChart);
 import React from "react";
 import {
   LineChart as RechartsLineChart,
@@ -75,46 +24,55 @@ const generateColor = (str) => {
   return color;
 };
 
-const LineChart = ({ data, metricName, experimentId }) => {
+const LineChart = ({ data, metricName, lines }) => {
   if (!data || data.length === 0) {
     return (
-      <Card title={`${metricName} (${experimentId})`} className="mb-4">
-        <p>No found data for this chart</p>
+      <Card title={metricName} className="mb-4">
+        <p>No data for the chart</p>
       </Card>
     );
   }
 
-  const lineColor = generateColor(`${experimentId}-${metricName}`);
-
   return (
-    <Card title={`${metricName} (${experimentId})`} className="mb-4">
+    <Card title={metricName} className="mb-4">
       <ResponsiveContainer width="100%" height={300}>
         <RechartsLineChart
           data={data}
-          margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+          margin={{ top: 8, right: 10, left: 20, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-
           <XAxis
             dataKey="step"
-            label={{ value: "Step", position: "insideBottom", offset: 0 }}
+            label={{
+              value: "Step",
+              position: "right",
+              offset: -35,
+              dy: 20,
+            }}
           />
-
           <YAxis
-            label={{ value: "Value", angle: -90, position: "insideleft" }}
+            label={{
+              value: "Value",
+              angle: -90,
+              position: "top",
+              offset: -25,
+              dx: -20,
+            }}
           />
-
           <Tooltip />
-
           <Legend />
-
-          <Line
-            type="monotone"
-            dataKey="value"
-            stroke={lineColor}
-            activeDot={{ r: 8 }}
-            name={`${metricName} (${experimentId})`}
-          />
+          {lines.map((line) => (
+            <Line
+              key={line.dataKey}
+              type="monotone"
+              dataKey={line.dataKey}
+              stroke={generateColor(line.dataKey)}
+              strokeWidth={1}
+              dot={false}
+              activeDot={{ r: 8 }}
+              name={line.name}
+            />
+          ))}
         </RechartsLineChart>
       </ResponsiveContainer>
     </Card>

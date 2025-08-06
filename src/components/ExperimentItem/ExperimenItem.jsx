@@ -6,13 +6,8 @@ import { toggleExperimentSelection } from "../../redux/experiment/experimentsSli
 
 const ExperimenItem = ({ experimentId }) => {
   const dispatch = useDispatch();
-
   const selectedExperimentIds = useSelector(selectSelectedExperimentIds);
   const isSelected = selectedExperimentIds.includes(experimentId);
-
-  // const selectedExperimentIds = useSelector(
-  //   (state) => state.experiments.selectedExperimentIds
-  // );
 
   const handleChange = () => {
     dispatch(toggleExperimentSelection(experimentId));

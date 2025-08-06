@@ -5,4 +5,8 @@ export const store = configureStore({
   reducer: {
     experiments: experimentsReducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });

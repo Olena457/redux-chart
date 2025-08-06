@@ -5,9 +5,9 @@ import LineChart from "../LineChart/LineChart.jsx";
 import { selectChartData } from "../../redux/experiment/experimentSelectors.js";
 
 const ChartDisplay = () => {
-  const chartData = useSelector(selectChartData);
+  const chartDataByMetric = useSelector(selectChartData);
 
-  if (chartData.length === 0) {
+  if (Object.keys(chartDataByMetric).length === 0) {
     return (
       <Card title="Metrics" className="mt-4">
         <p>
@@ -19,17 +19,14 @@ const ChartDisplay = () => {
   }
 
   return (
-    <Card title="Metrics" className="mt-4">
-      <div className="grid">
-        {chartData.map((chart, index) => (
-          <div
-            key={`${chart.experimentId}-${chart.metricName}-${index}`}
-            className="col-12 md:col-6"
-          >
+    <Card title="Metrics" className="mt-4 ">
+      <div className="grid chart-container">
+        {Object.keys(chartDataByMetric).map((metricName) => (
+          <div key={metricName} className="col-12 lg:col-12 xl:col-6">
             <LineChart
-              data={chart.data}
-              metricName={chart.metricName}
-              experimentId={chart.experimentId}
+              data={chartDataByMetric[metricName].data}
+              lines={chartDataByMetric[metricName].lines}
+              metricName={metricName}
             />
           </div>
         ))}
