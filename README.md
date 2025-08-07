@@ -1,12 +1,63 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# 📊 _`Chart & Data`_ — Data Visualization & Metrics Analysis
 
-Currently, two official plugins are available:
+`Chart & Data` is a responsive single-page web application designed for visualizing data from CSV files and analyzing experiment metrics. Users can upload datasets, select experiments and metrics, and instantly view charts and numerical values — all within a clean and efficient interface.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **Live Demo**: [experiment-chart.netlify.app](https://experiment-chart.netlify.app)
 
-## Expanding the ESLint configuration
+## Key Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📂 Upload CSV files for analysis
+- 🧪 Select experiments from a dynamic list
+- 📊 Choose one or multiple metrics simultaneously
+- 📈 View interactive charts and metric values
+- 📱 Responsive design for seamless use across devices
+
+---
+
+## Gallery Preview
+
+<div style="display: flex; flex-wrap: wrap; gap: 15px;">
+  <img src="./src/assets/screen/photo-1.jpg" width="23%" height="130px" alt="photo-1"/>
+  <img src="./src/assets/screen/photo-2.jpg" width="23%" height="130px" alt="photo-2"/>
+  <img src="./src/assets/screen/photo-3.jpg" width="23%" height="130px" alt="photo-3"/>
+  <img src="./src/assets/screen/photo-4.jpg" width="23%" height="130px" alt="photo-4"/>
+  <img src="./src/assets/screen/photo-5.jpg" width="23%" height="130px" alt="photo-5"/>
+  <img src="./src/assets/screen/photo-6.jpg" width="23%" height="130px" alt="photo-6"/>
+</div>
+
+---
+
+## Technologies Used
+
+This project is built with a modern frontend stack focused on performance, flexibility, and maintainability:
+
+- **React 19** — core UI framework
+- **Redux Toolkit** — centralized state management
+- **React Redux** — seamless Redux integration
+- **Reselect** — memoized selectors for performance
+- **Recharts** — chart rendering and data visualization
+- **PapaParse** — CSV parsing utility
+- **PrimeReact** — UI components
+- **PrimeFlex** — utility-first styling
+
+---
+
+## Getting Started
+
+To run the project locally:
+
+```bash
+# Clone the repository
+git clone `repository name`
+
+# Navigate to the project directory
+cd `redux-chart`
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+```
