@@ -18,10 +18,12 @@
 
 ## Gallery Preview
 
-<div style="display: flex; justify-content: center; gap: 15px; flex-wrap: nowrap; overflow-x: auto;">
+<div align="center">
   <img src="./src/assets/screen/photo-1.jpg" width="180px" height="120px" alt="photo-1"/>
   <img src="./src/assets/screen/photo-2.jpg" width="180px" height="120px" alt="photo-2"/>
   <img src="./src/assets/screen/photo-3.jpg" width="180px" height="120px" alt="photo-3"/>
+</div>
+<div align="center">
   <img src="./src/assets/screen/photo-4.jpg" width="180px" height="120px" alt="photo-4"/>
   <img src="./src/assets/screen/photo-5.jpg" width="180px" height="120px" alt="photo-5"/>
   <img src="./src/assets/screen/photo-6.jpg" width="180px" height="120px" alt="photo-6"/>
