@@ -19,12 +19,10 @@
 ## Gallery Preview
 
 <div style="display: flex; flex-wrap: wrap; gap: 15px;">
-  <img src="./src/assets/screen/photo-7.jpg" width="20%" height="120px"  object-fit: cover; alt="photo-1"/>
   <img src="./src/assets/screen/photo-1.jpg" width="20%" height="120px"  object-fit: cover; alt="photo-1"/>
   <img src="./src/assets/screen/photo-2.jpg" width="20%" height="120px"  object-fit: cover; alt="photo-2"/>
   <img src="./src/assets/screen/photo-3.jpg" width="20%" height="120px"  object-fit: cover; alt="photo-3"/>
   <img src="./src/assets/screen/photo-4.jpg" width="20%" height="120px"  object-fit: cover; alt="photo-4"/>
-  <img src="./src/assets/screen/photo-8.jpg" width="20%" height="120px"  object-fit: cover; alt="photo-1"/>
   <img src="./src/assets/screen/photo-5.jpg" width="20%" height="120px"  object-fit: cover; alt="photo-5"/>
   <img src="./src/assets/screen/photo-6.jpg" width="20%" height="120px"  object-fit: cover; alt="photo-6"/>
 </div>
