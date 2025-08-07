@@ -11,8 +11,8 @@
 body {
   margin: 0;
   display: flex;
-  /* background-color: #c0c0c0; */
-  background-color: #d6d6d6;
+  background-color: #c0c0c0;
+  /* background-color: #d6d6d6; */
   color: #333333;
   min-width: 320px;
   min-height: 100vh;
