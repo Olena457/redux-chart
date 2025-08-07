@@ -28,6 +28,7 @@ const experimentsSlice = createSlice({
       state.isLoading = false;
       state.error = null;
     },
+
     toggleExperimentSelection: (state, action) => {
       const id = action.payload;
       if (state.selectedExperimentIds.includes(id)) {
@@ -38,6 +39,7 @@ const experimentsSlice = createSlice({
         state.selectedExperimentIds.push(id);
       }
     },
+
     toggleMetricSelection: (state, action) => {
       const metric = action.payload;
       if (state.selectedMetrics.includes(metric)) {

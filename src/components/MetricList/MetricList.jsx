@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
-import { toggleMetricSelection } from "../../redux/experiment/experimentsSlice.js";
 import { Card } from "primereact/card";
 import { Checkbox } from "primereact/checkbox";
+import { toggleMetricSelection } from "../../redux/experiment/experimentsSlice.js";
 
 const MetricList = () => {
   const dispatch = useDispatch();
